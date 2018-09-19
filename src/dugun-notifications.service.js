@@ -39,14 +39,18 @@ function DugunNotifications(toaster, dgNotificationsConfig) {
             /** for laravel 4.2 */
             data = data.messages;
         }
-        if (data) {
-            /** this is for laravel5.x validation response. i is name of field. */
+        /**
+         * this override second condition
+         */
+        /*if (data) {
+            /!** this is for laravel5.x validation response. i is name of field. *!/
+            console.log(data)
             for (var i in data) {
                 for (var j in data[i]) {
                     showAlert('error', data[i][j], i);
                 }
             }
-        }
+        }*/
 
         return;
     }
