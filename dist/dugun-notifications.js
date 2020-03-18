@@ -23,7 +23,7 @@ function DugunNotifications(toaster, dgNotificationsConfig) {
         } else if (http.status === 422) {
             return validationErrors(http.data);
         } else if (http.status === 403) {
-            return forbiddenError();
+            return forbiddenError(http.data);
         } else if (http.status === 404) {
             return notFoundError();
         } else if (http.status === 405) {
@@ -69,8 +69,8 @@ function DugunNotifications(toaster, dgNotificationsConfig) {
         return;
     }
 
-    function forbiddenError() {
-        return showAlert('error', dgNotificationsConfig.translations.HTTP_403, dgNotificationsConfig.translations.ERROR);
+    function forbiddenError(data) {
+        return showAlert('error', data.message || dgNotificationsConfig.translations.HTTP_403, dgNotificationsConfig.translations.ERROR);
     }
 
     function notFoundError() {
