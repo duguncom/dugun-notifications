@@ -28,6 +28,8 @@ function DugunNotifications(toaster, dgNotificationsConfig) {
             return notFoundError();
         } else if (http.status === 405) {
             return forbiddenError();
+        } else if (http.status === 409) {
+            return forbiddenError();
         }
     };
 
